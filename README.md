@@ -1,39 +1,28 @@
-# node-express-boilerplate
-[![Build Status](https://travis-ci.org/5orenso/node-express-boilerplate.svg?branch=master)](https://travis-ci.org/5orenso/node-express-boilerplate)
-[![Coverage Status](https://coveralls.io/repos/5orenso/node-express-boilerplate/badge.svg)](https://coveralls.io/r/5orenso/node-express-boilerplate)
+# GeoIP API
+[![Build Status](https://travis-ci.org/5orenso/geoip-api.svg)](https://travis-ci.org/5orenso/geoip-api)
+[![Coverage Status](https://coveralls.io/repos/5orenso/geoip-api/badge.svg)](https://coveralls.io/r/5orenso/geoip-api)
 
-## Yet another Node.js - Express boilerplate
+## A Geo API built with Node.js and using Maxmind databases.
 
 This time with a template engine, unit tests, integration tests, code coverage, continuous integration, code analysis and a nice setup flow.
 
 
 ## Getting started
 
-#### Prerequisite
-
+Clone the repo:
 ```bash
-$ npm install -g buster
-$ npm install -g grunt
-$ npm install -g istanbul
+git clone https://github.com/5orenso/geoip-api.git
+cd geoip-api
 ```
 
-#### Clone repo and start server
-
-To run the server in development mode:
+Install database and config:
 ```bash
-git clone https://github.com/5orenso/node-express-boilerplate.git
-cd node-express-boilerplate
+bash ./install.sh
+```
+
+Run the server in demo mode:
+```bash
 npm install
-./run-server.sh
+node ./app/server.js
 ```
-
-This will restart the server every time a file has changed.
-
-
-In addition to this I recommend using Grunt to watch your files and perform code analysis and run tests every time a file changes:
-```bash
-./run-watch.sh
-```
-
-Now, go ahead and add modules into the ./app/routes/web.js or add more routes to the ./app/server.js file.
 
