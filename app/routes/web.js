@@ -15,7 +15,8 @@ var express       = require('express'),
     appPath       = __dirname + '/../../',
     templatePath  = path.normalize(appPath + 'template/current'),
     Logger        = require(appPath + 'lib/logger'),
-    logger        = new Logger();
+    logger        = new Logger(),
+    maxmind       = require('maxmind');
 
 var stats, activeConn, histogram, timer, config;
 var webRouter = express.Router();
@@ -67,6 +68,12 @@ webRouter.use('/sitemap.xml', express.static(appPath + 'template/sitemap.xml'));
 // Main route for html files.
 webRouter.get('/*', function(req, res) {
     var requestPathname = req._parsedUrl.pathname;
+    // City/Location lookup
+    maxmind.init(appPath + 'db/GeoLiteCity.dat', {memoryCache: true, checkForUpdates: true});
+    var location = {};
+    var clientIp = req.query.q || req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    location = maxmind.getLocation(clientIp);
+    console.log(location);
 
     // Stop timer when response is transferred and finish.
     res.on('finish', function () {
@@ -77,8 +84,10 @@ webRouter.get('/*', function(req, res) {
     try {
         var tpl = swig.compileFile(templatePath + requestPathname);
         res.send(tpl({
-            title: 'Hello world',
-            queryString: req.query
+            title: 'GeoIP',
+            queryString: req.query,
+            clientIp: clientIp,
+            location: location
         }));
     } catch (err) {
         res.status(404).send('Page not found: ' + err);
