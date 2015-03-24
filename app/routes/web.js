@@ -28,6 +28,11 @@ webRouter.setConfig = function (conf, opt) {
             logger.set('workerId', opt.workerId);
         }
     }
+    if (_.isObject(opt.mock)) {
+        if (_.isObject(opt.mock.maxmind)) {
+            maxmind = opt.mock.maxmind;
+        }
+    }
 };
 
 function redirectSlash(req, res, next) {

@@ -11,7 +11,19 @@ var buster     = require('buster'),
 
 var config = require(__dirname + '/../../../config/config-dist.js');
 router.setConfig(config, {
-    workerId: 1
+    workerId: 1,
+    mock: {
+        maxmind: {
+            init: function (dbFile, opts) {
+                return true;
+            },
+            getLocation: function (ip) {
+                return {
+
+                };
+            }
+        }
+    }
 });
 
 var port = 4321;
