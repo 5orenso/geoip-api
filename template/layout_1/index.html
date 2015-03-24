@@ -14,7 +14,7 @@
             var mapCanvas = document.getElementById('map-canvas');
             var mapOptions = {
                 center: new google.maps.LatLng({{ location.latitude }}, {{ location.longitude }}),
-                zoom: 8,
+                zoom: 15,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             }
             var map = new google.maps.Map(mapCanvas, mapOptions);
@@ -27,6 +27,7 @@
 
 <h3>Your position is</h3>
 <p>
+    clientIp: {{ clientIp }}<br>
 countryCode: {{ location.countryCode }} <br>
 countryName: {{ location.countryName }} <br>
 region: {{ location.region }} <br>
