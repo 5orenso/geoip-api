@@ -1,0 +1,44 @@
+{
+  "name": "node-boilerplate",
+  "description": "A nice boilerplate with a template engine, unit tests, integration tests, code coverage, continuous integration, code analysis and a nice setup flow.",
+  "version": "1.0.0",
+  "homepage": "https://github.com/5orenso/node-express-boilerplate",
+  "author": {
+    "name": "Øistein Sørensen",
+    "email": "sorenso@gmail.com"
+  },
+  "main": "main",
+  "engines": {
+    "node": ">=0.10.21"
+  },
+  "scripts": {
+    "test": "grunt"
+  },
+  "devDependencies": {
+    "buster": "~0.7.8",
+    "buster-istanbul": "~0.1.10",
+    "grunt": "~0.4.1",
+    "grunt-buster": "~0.3.1",
+    "grunt-contrib-jshint": "~0.6.4",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-coveralls": "^1.0.0",
+    "grunt-jscs": "^1.5.0",
+    "grunt-nodemon": "~0.1.2",
+    "grunt-shell": "~0.6.4",
+    "request": "~2.45.0"
+  },
+  "keywords": [],
+  "dependencies": {
+    "when": "~3.4.4",
+    "underscore": "~1.6.0",
+    "winston": "~0.7.3",
+    "commander": "~2.3.0",
+    "express": "~4.9.5",
+    "body-parser": "~1.9.0",
+    "swig": "~1.4.2",
+    "compression": "~1.1.0",
+    "winston-syslog": "~0.2.5",
+    "morgan": "~1.5.0"
+  }
+}
